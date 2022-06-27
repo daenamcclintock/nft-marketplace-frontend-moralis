@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "moralis:sync": "moralis-admin-cli connect-local-devchain --chain hardhat --moralisSubdomain eexng9ln1pc4.usemoralis.com --frpcPath ./frp/frpc",
-    "moralis:cloud": "moralis-admin-cli watch-cloud-folder  --moralisSubdomain XXX.usemoralis.com --autoSave 1 --moralisCloudfolder ./cloudFunctions",
-    "moralis:logs": "moralis-admin-cli get-logs --moralisSubdomain XXX.usemoralis.com"
+    "moralis:cloud": "moralis-admin-cli watch-cloud-folder --moralisSubdomain eexng9ln1pc4.usemoralis.com --autoSave 1 --moralisCloudfolder ./cloudFunctions",
+    "moralis:logs": "moralis-admin-cli get-logs --moralisSubdomain eexng9ln1pc4.usemoralis.com"
   },
   "dependencies": {
     "moralis": "^1.8.0",
