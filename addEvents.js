@@ -50,7 +50,7 @@ async function main() {
             name: "ItemListed",
             type: "event",
         },
-        tableName: "itemListed",
+        tableName: "ItemListed",
     }
 
     const itemBoughtOptions = {
@@ -89,7 +89,7 @@ async function main() {
             name: "ItemBought",
             type: "event",
         },
-        tableName: "itemBought",
+        tableName: "ItemBought",
     }
 
     const itemDeletedOptions = {
@@ -122,7 +122,7 @@ async function main() {
             name: "ItemDeleted",
             type: "event",
         },
-        tableName: "itemDeleted",
+        tableName: "ItemDeleted",
     }
 
     const listedResponse = await Moralis.Cloud.run("watchContractEvent", itemListedOptions, {
