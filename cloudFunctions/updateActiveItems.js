@@ -19,7 +19,7 @@ Moralis.Cloud.afterSave("ItemListed", async (request) => {
             logger.info(`Deleting ${request.object.get("objectId")}`)
             await alreadyListedItem.destroy()
             logger.info(
-                `Deleted item with tokenId ${request.object.get(
+                `Deleted item with Token ID ${request.object.get(
                     "tokenId"
                 )} at address ${request.object.get(
                     "address"
@@ -61,7 +61,7 @@ Moralis.Cloud.afterSave("ItemDeleted", async (request) => {
             logger.info(`Deleting ${request.object.get("objectId")}`)
             await deletedItem.destroy()
             logger.info(
-                `Deleted item with tokenId ${request.object.get(
+                `Deleted item with Token ID ${request.object.get(
                     "tokenId"
                 )} at address ${request.object.get("address")} since it was deleted. `
             )
@@ -87,13 +87,13 @@ Moralis.Cloud.afterSave("ItemBought", async (request) => {
         query.equalTo("nftAddress", request.object.get("nftAddress"))
         query.equalTo("tokenId", request.object.get("tokenId"))
         logger.info(`Marketplace | Query: ${query}`)
-        const deletedItem = await query.first()
-        logger.info(`Marketplace | DeletedItem: ${deletedItem}`)
-        if (deletedItem) {
+        const boughtItem = await query.first()
+        logger.info(`Marketplace | BoughtItem: ${boughtItem}`)
+        if (boughtItem) {
             logger.info(`Deleting ${request.object.get("objectId")}`)
-            await deletedItem.destroy()
+            await boughtItem.destroy()
             logger.info(
-                `Deleted item with tokenId ${request.object.get(
+                `Deleted item with Token ID ${request.object.get(
                     "tokenId"
                 )} at address ${request.object.get(
                     "address"
