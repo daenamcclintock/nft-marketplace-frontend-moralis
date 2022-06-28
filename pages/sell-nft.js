@@ -61,8 +61,8 @@ const sellNft = () => {
         })
     }
 
-    const handleListSuccess = async(tx) => {
-        await tx.wait(1)
+    const handleListSuccess = async (transaction) => {
+        await transaction.wait(1)
         dispatch({
             type: "success",
             message: "NFT listing",
@@ -71,8 +71,8 @@ const sellNft = () => {
         })
     }
 
-    const handleWithdrawSuccess = async (tx) => {
-        await tx.wait(1)
+    const handleWithdrawSuccess = async (transaction) => {
+        await transaction.wait(1)
         dispatch({
             type: "success",
             message: "Withdrawing proceeds",
