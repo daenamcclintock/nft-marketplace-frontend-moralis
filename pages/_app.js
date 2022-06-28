@@ -2,10 +2,13 @@ import '../styles/globals.css'
 import { MoralisProvider } from "react-moralis"
 import Header from '../components/Header'
 import Head from 'next/head'
-import "dotenv"
+// import "dotenv"
 
-const APP_ID = process.env.NEXT_PUBLIC_APP_ID
-const SERVER_URL = NEXT_PUBLIC_SERVER_URL
+// const APP_ID = process.env.NEXT_PUBLIC_APP_ID
+// const SERVER_URL = NEXT_PUBLIC_SERVER_URL
+
+const APP_ID = "gNoQB2rRjfRxykqxp3Eof1CcFVFKrxEhlOjR3Z8l"
+const SERVER_URL = "https://eexng9ln1pc4.usemoralis.com:2053/server"
 
 function MyApp({ Component, pageProps }) {
   return (
