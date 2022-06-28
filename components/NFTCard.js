@@ -31,6 +31,8 @@ const NFTCard = (props) => {
     const hideModal = () => setShowModal(false)
     const dispatch = useNotification()
 
+    const { price, nftAddress, tokenId, marketplaceAddress, seller } = props
+
     const { runContractFunction: getTokenURI } = useWeb3Contract({
         abi: nftAbi,
         contractAddress: nftAddress,
