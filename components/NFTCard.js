@@ -22,7 +22,7 @@ const truncateStr = (fullStr, strLen) => {
     )
 }
 
-const NFTCard = (props) => {
+export default function NFTCard({ price, nftAddress, tokenId, marketplaceAddress, seller }) {
     const { isWeb3Enabled, account } = useMoralis()
     const [imageURI, setImageURI] = useState("")
     const [tokenName, setTokenName] = useState("")
@@ -30,8 +30,6 @@ const NFTCard = (props) => {
     const [showModal, setShowModal] = useState(false)
     const hideModal = () => setShowModal(false)
     const dispatch = useNotification()
-
-    const { price, nftAddress, tokenId, marketplaceAddress, seller } = props
 
     const { runContractFunction: getTokenURI } = useWeb3Contract({
         abi: nftAbi,
@@ -53,10 +51,10 @@ const NFTCard = (props) => {
         },
     })
 
-    async function updateUI() {
-        const tokenURI = await getTokenURI()
+    async function updateUI1() {
+        // const tokenURI = await getTokenURI()
+        const tokenURI = "ipfs://bafybeig37ioir76s7mg5oobetncojcm3c3hxasyd4rvid4jqhy4gkaheg4/?filename=0-PUG.json"
         console.log(`The TokenURI is ${tokenURI}`)
-        // We are going to cheat a little here...
         if (tokenURI) {
             // IPFS Gateway: A server that will return IPFS files from a "normal" URL.
             const requestURL = tokenURI.replace("ipfs://", "https://ipfs.io/ipfs/")
@@ -71,13 +69,12 @@ const NFTCard = (props) => {
             // Have the world adopt IPFS
             // Build our own IPFS gateway
         }
-        // get the tokenURI
         // using the image tag from the tokenURI, get the image
     }
 
     useEffect(() => {
         if (isWeb3Enabled) {
-            updateUI()
+            updateUI1()
         }
     }, [isWeb3Enabled])
 
@@ -107,7 +104,7 @@ const NFTCard = (props) => {
         <div>
             <div>
                 {imageURI ? (
-                    <div>
+                    <div className="m-4">
                         <UpdateListingModal
                             isVisible={showModal}
                             tokenId={tokenId}
@@ -146,5 +143,3 @@ const NFTCard = (props) => {
         </div>
     )
 }
-
-export default NFTCard

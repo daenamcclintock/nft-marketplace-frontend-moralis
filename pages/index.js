@@ -11,7 +11,7 @@ export default function Home() {
         "ActiveItem",
         (query) => query.limit(10).descending("tokenId")
     )
-    console.log(listedNfts)
+    console.log('listedNfts', listedNfts)
 
     return (
         <div className="container mx-auto">
@@ -22,7 +22,7 @@ export default function Home() {
                         <div>Loading...</div>
                     ) : (
                         listedNfts.map((nft) => {
-                            console.log(nft.attributes)
+                            console.log('nft attributes', nft.attributes)
                             const { price, nftAddress, tokenId, marketplaceAddress, seller } =
                                 nft.attributes
                             return (
